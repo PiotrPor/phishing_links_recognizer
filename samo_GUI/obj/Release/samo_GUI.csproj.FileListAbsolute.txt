@@ -1,0 +1,5 @@
+C:\Users\Emperor_of_Virtuals\source_zespolowe_WEEIA\samo_GUI\samo_GUI\obj\Release\samo_GUI.csproj.AssemblyReference.cache
+C:\Users\Emperor_of_Virtuals\source_zespolowe_WEEIA\samo_GUI\samo_GUI\obj\Release\samo_GUI.Form1.resources
+C:\Users\Emperor_of_Virtuals\source_zespolowe_WEEIA\samo_GUI\samo_GUI\obj\Release\samo_GUI.Properties.Resources.resources
+C:\Users\Emperor_of_Virtuals\source_zespolowe_WEEIA\samo_GUI\samo_GUI\obj\Release\samo_GUI.csproj.GenerateResource.cache
+C:\Users\Emperor_of_Virtuals\source_zespolowe_WEEIA\samo_GUI\samo_GUI\obj\Release\samo_GUI.csproj.CoreCompileInputs.cache
