@@ -23,7 +23,9 @@ namespace complicatedMLNET
     {
         static void Main(string[] args) 
         {
-            String nazwa_pliku = "dataset.csv";
+            String bin_release = Environment.CurrentDirectory;
+            String project_directory_name = Directory.GetParent(bin_release).Parent.Parent.FullName;
+            String nazwa_pliku = project_directory_name + "/dataset.csv";
             //
             MLContext kontekst = new MLContext();
             IDataView dane = kontekst.Data.LoadFromTextFile<OpisAdresu>(path:nazwa_pliku, separatorChar:',', hasHeader:true);
