@@ -10,12 +10,10 @@ namespace complicatedMLNET
 {
     class OpisAdresu
     {
-        [LoadColumn(1,13)]
-        [VectorType(12)]
+        [LoadColumn(1,13), VectorType(12), ColumnName("Features")]
         public int[] cechy { get; set; }
 
-        [LoadColumn(14)]
-        [ColumnName("Result")] //nazwa kolumny w pliku, nie kodzie programu?
+        [LoadColumn(14), ColumnName("Result")] //nazwa kolumny w pliku, nie kodzie programu?
         public int Label { get; set; }
     }
 
@@ -33,9 +31,13 @@ namespace complicatedMLNET
             IDataView dane_treningowe = zestawy_danych.TrainSet;
             IDataView dane_testowe = zestawy_danych.TestSet;
 
-            IEstimator<ITransformer> estymatorPrzygotowawczy = kontekst.Transforms.Concatenate(
-                "having_IPhaving_IP_Address", "URLURL_Length", "Shortining_Service", "having_At_Symbol", "double_slash_redirecting", "Prefix_Suffix", 
-                "having_Sub_Domain", "SSLfinal_State", "port", "HTTPS_token", "SFH", "Submitting_to_email", "Abnormal_URL");
+            String[] nazwy_kolumn_danych = {
+                "having_IPhaving_IP_Address", "URLURL_Length", "Shortining_Service", "having_At_Symbol", "double_slash_redirecting", "Prefix_Suffix",
+                "having_Sub_Domain", "SSLfinal_State", "port", "HTTPS_token", "SFH", "Submitting_to_email", "Abnormal_URL"
+            };
+
+            //IEstimator<ITransformer> estymatorPrzygotowawczy = kontekst.Transforms.Concatenate("Result", nazwy_kolumn_danych);
+            IEstimator<ITransformer> estymatorPrzygotowawczy = kontekst.Transforms.Concatenate("Features", "Result");
             ITransformer transformer_przygotuj = estymatorPrzygotowawczy.Fit(dane_treningowe);
             IDataView stransformowane_treningowe = transformer_przygotuj.Transform(dane_treningowe);
 
